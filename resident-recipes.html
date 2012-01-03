@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('resident-recipes');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+				
+				//CreateServicesTable();
+			});
+
+			function CreateServicesTable()
+			{
+				var currRowId = 0;
+				
+				serviceCategories.sort();
+				for(var i = 0; i < serviceCategories.length; i++)
+				{
+						var isNewRow = (i % 2 == 0);
+						
+						if(isNewRow)
+							currRowId++;
+						
+						var html = '';
+						if(isNewRow)
+							html += '<tr id="servicesRow' + currRowId + '">';
+						
+						html += '<td style="width:50%;vertical-align:top;">' +
+										'<h2 style="color:white;">' + serviceCategories[i] + '</h2>' +
+										'<p>' + serviceData[serviceCategories[i]][0] + '</p>' +
+										'<p>' + serviceData[serviceCategories[i]][1] + '</p>' +
+									'</td>';
+						
+						if(isNewRow)
+						{
+							html += '</tr>';
+							$('#services').append(html);
+						}
+						else
+							$('#servicesRow' + currRowId).append(html);
+				}
+			}
+
+			//Put new categories at the end of the array definition - DO NOT ALPHA SORT BY HAND (will screw up the array indexes below)
+			//The array is sorted in the table creation logic
+			var serviceCategories = ["Child Care", 
+				"Cosmetics & More", 
+				"Customer Jewelry & Gifts", 
+				"Education",
+				"Food",
+				"Interior Decorating",
+				"Jewelry & More",
+				"Fragrance",
+				"Marketing",
+				"Party Supplies",
+				"Piano & Voice Lessons",
+				"Photography",
+				"Signs & Banners",
+				"Interior/Exterior Painting",
+				"DJ Service"];
+
+			//Add new category entries at the very bottom - make sure to use the index of the service category added above
+			//Array index 0: General service information
+			//Array index 1: Contact information (HTML formatted for links - use target="_blank" to open in a new window)
+			var serviceData = new Object();
+
+			//Child Care
+			serviceData[serviceCategories[0]] = new Array();
+			serviceData[serviceCategories[0]][0] = 'A Big Happy Family Childcare...because your child deserves the very best start in life! Loving, experienced, Christian, Masters-degreed mom enjoys helping kids learn through creative play! Activities include phonics, numbers, baking, gardening, and arts & crafts. Full-time, part-time, or drop-in care. 24/7 availability. Licensed & insured. All ages welcome!';
+			serviceData[serviceCategories[0]][1] = 'Call 770-6719.';
+
+			//TODO - Enabled multiple service offers per category
+			//serviceData[serviceCategories[0]][0] = new Array();
+			//serviceData[serviceCategories[0]][0][0] = 'A Big Happy Family Childcare...because your child deserves the very best start in life! Loving, experienced, Christian, Masters-degreed mom enjoys helping kids learn through creative play! Activities include phonics, numbers, baking, gardening, and arts & crafts. Full-time, part-time, or drop-in care. 24/7 availability. Licensed & insured. All ages welcome!';
+			//serviceData[serviceCategories[0]][0][1] = 'Call 770-6719.';
+
+			//serviceData[serviceCategories[0]][1] = new Array();
+			//serviceData[serviceCategories[0]][1][0] = 'A Big Happy Family Childcare 2...because your child deserves the very best start in life! Loving, experienced, Christian, Masters-degreed mom enjoys helping kids learn through creative play! Activities include phonics, numbers, baking, gardening, and arts & crafts. Full-time, part-time, or drop-in care. 24/7 availability. Licensed & insured. All ages welcome!';
+			//serviceData[serviceCategories[0]][1][1] = 'Call 770-6719.';
+
+			//Cosmetics & More
+			serviceData[serviceCategories[1]] = new Array();
+			serviceData[serviceCategories[1]][0] = 'Jennifer Hanna, Independent Avon Sales Representative. Let Jennifer serve all your Avon needs. Avon products include cosmetics, bath and body, jewelry and clothing. Items can be brought to your home or you can order online and directly ship to you or as a gift.';
+			serviceData[serviceCategories[1]][1] = 'Call 702-1770 or visit <a target="_blank" href="http://www.youravon.com/jhanna2177">www.youravon.com/jhanna2177</a>.';
+
+			//Customer Jewelry & Gifts
+			serviceData[serviceCategories[2]] = new Array();
+			serviceData[serviceCategories[2]][0] = 'Amy Cornwell Designs features personalized, custom stamped jewelry in sterling silver, gold filled and copper. Items start at just $3 - perfect for any budget. Each item is hammered in her home studio, then polished and packaged as a gift.';
+			serviceData[serviceCategories[2]][1] = 'You can view items at <a target="_blank" href="http://www.amycornwell.com">www.amycornwell.com</a>.';
+
+			//Education
+			serviceData[serviceCategories[3]] = new Array();
+			serviceData[serviceCategories[3]][0] = 'Legacy Christian School provides Christian curriculum to children from Pre-K to 8th Grade. Legacy recently relocated to 1399 Greenfield Ave in Noblesville. The school is accredited by the State of Indiana. ';
+			serviceData[serviceCategories[3]][1] = 'For more information, call 776-4186 or visit <a target="_blank" href="http://www.noblesvillechristianschool.org">www.noblesvillechristianschool.org</a>.';
+
+			//Food
+			serviceData[serviceCategories[4]] = new Array();
+			serviceData[serviceCategories[4]][0] = 'From main dishes to desserts, Tastefully Simple offers a wide variety of easy-to-prepare foods and gifts for every day and every occasion. Best of all, our products can be enjoyed right out of the package or prepared within minutes!';
+			serviceData[serviceCategories[4]][1] = 'For more information, please contact Emily McIntosh at 626-2047 or visit <a target="_blank" href="http://www.tastefullysimple.com">www.tastefullysimple.com</a>.';
+
+			//Interior Decorating
+			serviceData[serviceCategories[5]] = new Array();
+			serviceData[serviceCategories[5]][0] = 'Celebrating Home, formally Home Interior & Gifts, Inc., is a party planning, decorating, entertaining and fundraising home business that offers candles, stoneware, pictures, dips, cookies, greenery, sconces, mirrors and more. Proudly serving for 26+ years. ';
+			serviceData[serviceCategories[5]][1] = 'Browse or shop 24/7 directly from my Web site at <a target="_blank" href="http://www.celebratinghome.com/sites/zldavis">www.celebratinghome.com/sites/zldavis</a> or call Z. Leslie Davis at 770-8466.';
+
+			//Jewelry & More
+			serviceData[serviceCategories[6]] = new Array();
+			serviceData[serviceCategories[6]][0] = 'Stella & Dot is oh so much more than an irresistible, boutique style jewelry line. It\'s a company inspired by and created for strong women - just like you. The media can\'t get enough of Stella & Dot. Celebrities flaunt our couture style. From statement pieces to everyday signature charms, there\'s something for everyone at every price point!';
+			serviceData[serviceCategories[6]][1] = 'Call Valerie Riley at 403-3587 or visit <a target="_blank" href="http://www.stelladot.com/valerie">www.stelladot.com/valerie</a>.';
+
+			//Fragrance
+			serviceData[serviceCategories[7]] = new Array();
+			serviceData[serviceCategories[7]][0] = 'Scentsy Warmers are safer and more decorative than traditional candles. Beautiful ceramic pots use a low-watt bulb to melt specially formulated wax slowly, maximizing the fragrance time of the Scentsy Bar. With no flame, soot, smoke or lead to worry about, the Scentsy system is a safe way to enjoy more than 80 delightful Scentsy fragrances. ';
+			serviceData[serviceCategories[7]][1] = 'Call Valerie Riley at 403-3587 or visit <a target="_blank" href="http://www.valerieriley.scentsy.us/home">www.valerieriley.scentsy.us/home</a>.';
+
+			//Marketing
+			serviceData[serviceCategories[8]] = new Array();
+			serviceData[serviceCategories[8]][0] = 'Liberty Production Solutions provides graphic designs for businesses and organizations. Services include Web site design, publications, brochures, logo design, signage design, promotional publications, marketing materials, event planning and photography. Professional yet Personal Service.';
+			serviceData[serviceCategories[8]][1] = 'Call Spike Shepler at 432-2100 or visit <a target="_blank" href="http://www.libertyproductsolutions.com">www.libertyproductsolutions.com</a>.';
+
+			//Party Supplies
+			serviceData[serviceCategories[9]] = new Array();
+			serviceData[serviceCategories[9]][0] = 'Best Rentals is a full service party rental store offering tents, tables, chairs, moonwalks and more. Mention this ad and receive 10% off your order.';
+			serviceData[serviceCategories[9]][1] = 'Call Barry Felix at 638-3515 or visit <a target="_blank" href="http://www.bestrentals.net">www.bestrentals.net</a>.';
+
+			//Piano & Voice Lessons
+			serviceData[serviceCategories[10]] = new Array();
+			serviceData[serviceCategories[10]][0] = 'Julie Sprung\'s Music Studio provides piano and voice lessons for children from 4-years-old to adult. Lessons available in Mrs. Sprung\'s Noblesville studio or in your home. Individual or group lessons available. Lessons start at only $22 for 30 minutes. Mention this ad and receive $10 off your first private lesson.';
+			serviceData[serviceCategories[10]][1] = 'Call Julie at 219-6815 or visit <a target="_blank" href="http://www.juliesprung.musicteachershelper.com">www.juliesprung.musicteachershelper.com</a>.';
+
+			//Photography
+			serviceData[serviceCategories[11]] = new Array();
+			serviceData[serviceCategories[11]][0] = 'Sessions by Lori - it\'s not just taking pics, but making memories. Flexible hours and reasonable rates.';
+			serviceData[serviceCategories[11]][1] = 'Call Lori at 674-8512 or visit <a target="_blank" href="http://sessionsbyloriphotography.com">http://sessionsbyloriphotography.com</a>.';
+
+			//Signs & Banners
+			serviceData[serviceCategories[12]] = new Array();
+			serviceData[serviceCategories[12]][0] = 'ISF Sign Specialists can design, fabricate and install all types of signs. We have experience working throughout the country. Give us a call and let us help you with all of your sign needs!';
+			serviceData[serviceCategories[12]][1] = 'Call Eric Beckner at 251-1219 or visit <a target="_blank" href="http://www.isfsigns.com">www.isfsigns.com</a>.';
+
+			//Interior/Exterior Painting
+			serviceData[serviceCategories[13]] = new Array();
+			serviceData[serviceCategories[13]][0] = 'For the best painter in Indy, The Perfectionist Painter is the only choice.  Best in interior and exterior including fence and deck staining.   We do not mark up prices on our products -- you pay what we pay!  Locally owned/operated & insured.  Roudebush Farms referral discount offered!';
+			serviceData[serviceCategories[13]][1] = 'Visit <a target="_blank" href="http://www.theperfectionistpainter.com">www.theperfectionistpainter.com</a> or call 776-8779.  Quotes by e-mail: <a href="mailto:theperfectionistpainter@gmail.com">theperfectionistpainter@gmail.com</a>.';
+
+			//DJ Service
+			serviceData[serviceCategories[14]] = new Array();
+			serviceData[serviceCategories[14]][0] = '14 years in the business, Music Magic offers unlimited time and all-inclusive pricing!  Voted "Best Indy DJ" for the 3rd straight year.  We are a small, local, privately owned DJ company so you know you will get unmatched personalized service.';
+			serviceData[serviceCategories[14]][1] = 'For more information, visit <a href="http://www.musicmagicnow.com">www.musicmagicnow.com</a>, call Mike at 985-5500 or email <a href="mailto:musicmagic@prodigy.net">musicmagic@prodigy.net</a>.';  
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content">
+				<h2>Coming Soon!</h2>
+				<table style="width=100%;border-spacing:20px;" id="recipes">
+					
+				</table>
+				<p class="style4">If you would like your recipes listed on this page, please email <a href="mailto:board@roudebushfarms.org">board@roudebushfarms.org</a></p>
+			</div>
+		</div>
+	</body>
+</html>

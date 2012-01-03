@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/prettyPhoto.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" media="screen" />
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+		<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('gallery');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+				
+				var onMouseOutOpacity = 0.67;
+                $('ul.gallery li').opacityrollover({
+                    mouseOutOpacity:   onMouseOutOpacity,
+                    mouseOverOpacity:  1.0,
+                    fadeSpeed:         'fast',
+                    exemptionSelector: '.selected'
+                });
+				
+				$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:5000, autoplay_slideshow: false, social_tools: false});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content">
+				<ul class="gallery clearfix">
+					<li><a href="images/gallery/100_0620.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0620.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/100_0621.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0621.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/100_0622.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0622.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/100_0623.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0623.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/100_0624.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0624.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/100_0625.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0625.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/050411114130.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/050411114130.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/050411114148.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/050411114148.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/050411174528.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/050411174528.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/050411174538.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/050411174538.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/052211191801.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/052211191801.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/052211191821.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/052211191821.jpg" width="75" height="75" alt="" /></a></li>
+					<li><a href="images/gallery/052211191834.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/052211191834.jpg" width="75" height="75" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

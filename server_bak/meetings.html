@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="includes/css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="includes/css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="includes/js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="includes/js/main.js"></script>
+		<script type="text/javascript" src="includes/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="includes/js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('meetings');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content" style="height:620px;">
+				<table width="100%" border="0" cellspacing="3" cellpadding="3">
+					<tr>
+					  <td><blockquote>
+						<p><span class="style28"><h3>Attendance</h3></span><br />
+							<span class="style33">All members of the neighborhood are permitted to attend the monthly board meeting.  These monthly meetings are to conduct Roudebush Farms Property Owners Association business and as such unless the attendees are on the agenda, then they are not permitted to address the board during the meeting.  Disruptions from any attendee will be cause to request the person causing the disruption to leave and the board meeting will be recessed until that person does leave.</span><br />
+						</p>
+						</blockquote></td>
+					</tr>
+					<tr>
+					  <td><blockquote>
+						<p><span class="style28"><h3>Requesting to be on Agenda</h3></span><br />
+						  <span class="style33">Requests to address the board are welcomed, however the board does ask the request be received by the board at least 14 days prior to the scheduled meeting.  A request does not guarantee placement on the agenda, the requester will be notified of their placement on the agenda.  Each request is limited to one topic and will be allowed 10 minutes to address the board.  The following is required when making a request to address the board:</span><br />    
+						  </p>
+						<ol>
+						  <li class="style33">Your name</li>
+						  <li class="style33"> Your Property Address and/or Lot Number</li>
+						  <li class="style33"><span class="style33">Brief Description of the Topic</span><br />
+						  </li>
+						</ol>
+					  </blockquote>                </td>
+					</tr>
+					<tr>
+					  <td>&nbsp;</td>
+					</tr>
+				  </table>
+			</div>
+		</div>
+	</body>
+</html>

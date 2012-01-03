@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('members');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content">
+				<h2>2010 Roudebush Farms POA Board Members</h2>
+				<ul id="members">
+				  <li><h3>President<br /><span style="color:#D3C9BA;">Sara Carrington</span></h3>
+				  <li><h3>Vice President<br /><span style="color:#D3C9BA;">Emily Martin</span></h3>
+                  <li><h3>Secretary/Member-at-Large<br /><span style="color:#D3C9BA;">Jennifer Hanna</span></h3>
+                  </li>
+                  <li><h3>Interim Treasurer<br /><span style="color:#D3C9BA;">Kevin Kopp</span></h3>
+                  </li>
+                </ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="includes/css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="includes/css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="includes/js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="includes/js/main.js"></script>
+		<script type="text/javascript" src="includes/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="includes/js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('members');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content" style="height:600px;">
+				<h2>2010 Roudebush Farms POA Board Members</h2>
+				<ul id="members">
+                  <li><h3>Sara Carrington</h3>865-405-9214
+                  </li>
+                  <li><h3>Janet Condry</h3>776-9936
+                  </li>
+                  <li><h3>Emily Martin</h3> 773-1730
+                  </li>
+                </ul>
+			</div>
+		</div>
+	</body>
+</html>

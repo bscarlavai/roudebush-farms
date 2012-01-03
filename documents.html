@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				var hash;
+				var idx = document.location.href.indexOf('#');
+				if(idx > 0)
+					hash = document.location.href.substring(idx+1);
+				initPage('documents', hash);
+				hideElements('#documents div');
+				$('#' + hash).show();
+				
+				if(hash == 'pool')
+				{
+					$('#pool-calendar').show();
+					$('#pool-datepicker').show();
+				}
+				
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				/*$('#pool-datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initPoolCalendar()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initPoolCalendar()', 20);
+					}
+				});*/
+				
+				initEvents();
+				//initPoolCalendar();
+				initMenus();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content">
+				<div id="documents">
+					<div id="arch">
+						<h3>Architecture</h3>
+						<ul>
+							<li><a href="documents/arch/Architectural Approval Application_062810.pdf" target="_blank">Architectural Approval Application</a></li>
+							<li><a href="documents/arch/ROUDEBUSH FARMS OUTBUILDING GUIDELINES.pdf" target="_blank">Shed and Outbuilding Guidelines</a></li>
+							<br />
+							<span style="font-weight:bold;">NOTE:</span><span><br />Architectural questions and completed forms should be sent to <a href="mailto:architecture@roudebushfarms.org">architecture@roudebushfarms.org</a>.</span>
+						</ul>
+					</div>
+					<div id="crime">
+						<h3>Crime Prevention</h3>
+						<ul>
+							<li><a href="documents/crime/2010 Uniform Crime Report Data.ppt" target="_blank">2010 Uniform Crime Report Data</a>
+							<span style="font-size:12px;">
+								<p>Notes:<br />
+								Burglary is the intent to commit a felony, and there may or may not be anything stolen.  Robbery is a person taking something from the person with the threat or use of force. It can be just verbal or with a weapon (used or just shown). A weapon can almost be anything.</p>
+	 
+								<p>The data in this report shows number of incidents. Although the population of Noblesville increases each year, we do not see a higher number of incidents.  There may be a larger improvement in crime prevention than can be seen from this data.</p>
+							</span>
+							</li>
+							<li><a href="documents/crime/Crime Watch- Letter from Chief of Police.pdf" target="_blank">Crime Watch - Letter from the Chief of Police</a></li>
+							<li><a href="documents/crime/Crime Watch Program.pdf" target="_blank">Crime Watch Program</a></li>
+							<li><a href="documents/crime/Operation IndentOperation Indentification Program.pdf" target="_blank">Operation ID Program</a></li>
+							<li><a href="documents/crime/Operation Indentification Inventory Form.pdf"" target="_blank">Operation ID Inventory Form</a></li>
+							<li><a href="documents/crime/Residential Security Information.pdf" target="_blank">Residential Security Information</a></li>
+							<li><a href="documents/crime//Residential Security Checklist.pdf"" target="_blank">Residential Security Checklist</a></li>
+							<li><a href="documents/crime/Vacation Watch Request Form.pdf" target="_blank">Vacation Watch Request</a></li>
+							<li><a href="documents/crime/NPD letter to HOA and POA.pdf" target="_blank">NPD letter to HOA and POA</a></li>
+						</ul>
+					</div>
+					<div id="finance">
+						<h3>Finance</h3>
+						<ul>
+							<li><a href="documents/legal/RF POA 2011 Budget.pdf" target="_blank">2011 Roudebush Farms POA Budget </a></li>
+							<li><a href="documents/legal/RF POA 2010 Budget.pdf" target="_blank">2010 Roudebush Farms POA Budget </a></li>
+							<li><a href="documents/legal/Delinquency Procedure.pdf" target="_blank">Delinquency Procedures</a></li>
+						</ul>
+					</div>
+					<div id="legal">
+						<h3>Legal</h3>
+						<ul>
+							<li><a href="documents/legal/Declaration of Covenants.pdf" target="_blank">Declaration of Covenants, Conditions and Restrictions</a></li>
+							<li><a href="documents/legal/Amendment0001.pdf" target="_blank">2009 Amendment to the Declaration of Covenants and Restrictions</a></li>
+							<li><a href="documents/legal/By-Laws for Roudebush Farms POA.pdf" target="_blank">By-laws</a></li>
+							<li><a href="documents/legal/Insurance- General Liability.pdf" target="_blank">Insurance - General Liability</a></li>
+							<li><a href="documents/legal/Insurance- Directors & Officers.pdf" target="_blank">Insurance - Directors & Officers</a></li>
+							<br />
+							<span style="font-weight:bold;">NOTE:</span><span><br />All document requests require 48 hours notice.</span>
+						</ul>
+					</div>
+					<div id="pool">
+						<h3>Pool</h3>
+						<ul>
+							<li><a href="documents/legal/PoolRules.pdf" target="_blank">Pool Rules (Shared with Roudebush Woods)</a></li>
+							<li><a href="documents/pool/ROUDEBUSH COMMUNITY PATIO RESERVATION FORM.pdf" target="_blank">Patio Reservation Form</a></li>
+							<li><a href="documents/pool/Pool Letter 2011.pdf" target="_blank">2011 Pool Welcome Letter</a></li>
+							<li><a href="documents/pool/2011 Roudebush Village Pool Year End meeting.pdf" target="_blank">2011 Year End Meeting Minutes</a></li>
+							<br />
+							<span><span style="font-weight:bold;">Pool hours for the 2011 Season are:</span> <br />
+								11AM – 9PM Monday thru Friday <br />
+								10AM – 9PM Saturday and Sunday <br />
+								<br />
+								<span style="font-weight:bold;">After Noblesville Schools begin, pool hours:</span> <br />
+								11AM – 8PM Monday thru Thursday <br />
+								10AM – 9PM Friday & Saturday <br />
+								10AM – 8PM Sunday <br /><br />
+							</span>
+							<span style="font-weight:bold;">NOTE:</span><span><br />Pool related requests can be emailed to <a href="mailto:pool@roudebushfarms.org">pool@roudebushfarms.org</a>.<br />
+								Poolcard requests should be sent to <a href="mailto:poolcard@roudebushfarms.org">poolcard@roudebushfarms.org</a>.
+							</span>
+						</ul>
+					</div>
+					<div id="misc">						
+						<h3>Miscellaneous</h3>
+						<ul>
+							<li><a href="documents/misc/RoudebushLot Plan.pdf" target="_blank">Community Lot Map</a></li>
+							<li><a href="documents/misc/RF POA LOT NUMBER to ADDRESS LIST.pdf" target="_blank">Lot Number Street Address List</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
