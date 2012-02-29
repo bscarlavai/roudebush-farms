@@ -65,7 +65,7 @@ function setupEvents()
 		dataType: "xml",
 		success: function(xml) {
 			var jXmlData = $(xml);
-			jXmlData.find('event[ month = "' + $('.ui-datepicker-month').text() + '" ]').each(function( intPartIndex ){
+			jXmlData.find('event[ month = "' + $('.ui-datepicker-month').text() + '" ][ year = "' + $('.ui-datepicker-year').text() + '"]').each(function( intPartIndex ){
 				var event = $(this);
 				var day = event.attr('day');
 				$('#datepicker a:contains("' + day + '")').each(function(index){
