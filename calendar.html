@@ -29,6 +29,8 @@
 				
 				initEvents();
 				initMenus();
+				
+				loadCalendarFromXml();
 			});
 		</script>
 	</head>
@@ -38,199 +40,19 @@
 				<table width="100%" border="0" cellspacing="3" cellpadding="3">
 					<tr>
 					  <td width="75%" valign="top"><br />
-						<table align="center" cellpadding="0" cellspacing="0">
-						  <col width="189" />
+						<table id="calendarTable" align="center" cellpadding="0" cellspacing="0">
+						  <col width="225" />
 						  <col width="65" />
 						  <col width="184" />
 						  <tr height="22">
 							<td colspan="3" height="22"><span class="style28" ><h2>Board Meetings Schedule</h2></span></td>
 						  </tr>
-						  <tr height="22" style="font-weight:bold;color:white;">
+						  <tr id="rowHeaders" height="22" style="font-weight:bold;color:white;">
 							<td width="187" height="22"><span class="style28" >Date/Minutes</span></td>
 							<td width="73"><span class="style28" >Time</span></td>
 							<td width="178"><span class="style28" >Location</span></td>
 						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >Sunday,    December 9, 2012</span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >Sunday,    November 11, 2012</span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >Sunday,    October 14, 2012</span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >Sunday,    September 9, 2012</span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2012/RF Board Meeting Minutes 2012.08.12.pdf">Sunday,    August 12, 2012</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >Sunday,    May 6, 2012</span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2012/RF Board Meeting Minutes 2012.04.01.pdf">Sunday,    April 1, 2012</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2012/RF Board Meeting Minutes 2012.03.04.pdf">Sunday,    March 4, 2012</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2012/RF Board Meeting Minutes 2012.02.12.pdf">Sunday,    February 12, 2012</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >2:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >Noblesville Library</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2012/RF Board Meeting Minutes 2012.01.12.pdf">Thursday,    January 12, 2012</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes 2011.12.11.pdf">Sunday,    December 11, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19511 Colvic Court</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes_2011.11.06.pdf">Sunday,    November 6, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19511 Colvic Court</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes_2011.10.13.pdf">Thursday,    October 13, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19229 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes 2011.09.18.pdf">Sunday,    September 18, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19511 Colvic Court</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes 2011.08.07.pdf">Sunday,    August 7, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19511 Colvic Court</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/Meeting Minutes 2011.05.15.doc">Sunday,    May 15, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes 2011.04.03.pdf">Sunday,    April 3, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >Sunday,    March 27, 2011</span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >2:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive - Block Captains Meeting</span></div></td>
-						  </tr>
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/RF Board Meeting Minutes 2011.03.06.pdf">Sunday,    March 6, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  
-						  <tr height="21">
-						    <td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/2011 Annual Meeting Agenda.pdf">Sunday,    February 6, 2011</a></span></div></td>
-							<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >1:30 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >Noblesville Public Library - Annual Meeting & Crime Watch Meeting</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/Meeting Minutes_Joint Pool Mtg_011111.doc">Tuesday,    January 11, 2011</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" ></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >Joint Pool Meeting</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2011/Meeting Minutes_010911.pdf">Sunday,    January 9, 2011</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr style="color:#F8DA4E;" height="21">
-							<td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >December 2010</span></div></td>
-							<td colspan="2"><div align="left" class="style31"><span class="style32" >No meeting due to holiday activities.</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes 2010_11_21.pdf">Tuesday,    November 9, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes 2010_10_06.doc">Wednesday,    October 6, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes_ 2010.09.08.pdf">Wednesday, September 8, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td ><div align="left" class="style31"><span class="style32" >Noblesville Public Library</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Pool meeting notes_090710.pdf">Tuesday, September    7, 2010</a></span></div></td>
-							<td>&nbsp;</td>
-							<td class="style33"><div align="left"><span class="style32">Joint Pool Meeting</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes_080110.pdf">Sunday,    August 1, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td class="style32"><div align="left" class="style31">11075 Godfrey Drive</div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes_071410.pdf">Wednesday, July    14, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >7:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes 2010 06 27.pdf">Sunday, June    27, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >4:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/JOINT MEETING MINUTES 05 10 2010.pdf">Monday, May    10, 2010</a></span></div></td>
-							<td>&nbsp;</td>
-							<td class="style33"><div align="left"><span class="style32">Joint Pool Meeting</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes 2010 05 02.pdf">Sunday, May    2, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >4:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting minutes 2010 04 11.pdf">Sunday, April    11, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >4:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >11075 Godfrey Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21" align="right"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting minutes 2010 03 14.pdf">Sunday,    March 14, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >4:00 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >19320 Searay Drive</span></div></td>
-						  </tr>
-						  <tr height="21">
-							<td height="21" align="right"><div align="left" class="style31"><span class="style32" ><a target="_blank" href="documents/minutes/2010/Meeting Minutes_020710.pdf">Sunday, February    07, 2010</a></span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >1:30 PM</span></div></td>
-							<td><div align="left" class="style31"><span class="style32" >Noblesville Public Library</span></div></td>
-						  </tr>						  
-						  <tr height="22">
-							<td height="22"><div align="left"><span class="style26"><span class="style31"></span></span></div></td>
-							<td><div align="left"><span class="style26"><span class="style31"></span></span></div></td>
-							<td><div align="left"><span class="style26"><span class="style31"></span></span></div></td>
-						  </tr>
-						  <tr height="21">
+						  <tr id="rowFooter" height="21">
 							<td colspan="3" height="21"><div align="left" class="style35"><span class="style32" >These dates, times and locations are subject to change.</span></div></td>
 						  </tr>
 						  <tr height="22">

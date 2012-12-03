@@ -56,6 +56,38 @@ function loadXmlContent(xmlFilePath, controlSelector)
 	});
 }
 
+function loadCalendarFromXml()
+{
+	$.ajax({
+		type: "GET",
+		async: false,
+		url: 'events.xml',
+		dataType: "xml",
+		success: function(xml) {
+			var jXmlData = $(xml);
+			jXmlData.find('event[isMeeting = "true"]').each(function( intPartIndex ){
+				var event = $(this);
+				var minuteFileName = event.attr('minuteFileName');
+				var linkHtml = '';
+				var linkHtmlEnd = '';
+				if(minuteFileName && minuteFileName != '')
+				{
+					linkHtml = '<a target="_blank" href="documents/minutes/' + minuteFileName + '">';
+					linkHtmlEnd = '</a>';
+				}
+					
+				var eventHtml = '<tr height="21">' +
+						    '<td height="21" style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >' + linkHtml + event.attr('dayName') + ',  ' + event.attr('month') + ' ' + event.attr('day') + ', ' + event.attr('year') + linkHtmlEnd + '</span></div></td>' +
+							'<td style="vertical-align:top;"><div align="left" class="style31"><span class="style32" >' + event.attr('time') + '</span></div></td>' +
+							'<td><div align="left" class="style31"><span class="style32" >' + event.attr('location') + '</span></div></td>' +
+						  '</tr>';
+
+				$(eventHtml).insertBefore('#rowFooter');
+			});
+		}
+	});
+}
+
 function setupEvents()
 {
 	$.ajax({
