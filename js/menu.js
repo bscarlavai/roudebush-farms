@@ -73,6 +73,7 @@ function initMenus() {
 					}				
 				}
 			}
+			
 			if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
 				if($('#' + parent).hasClass('collapsible')) {
 					$('#' + parent + ' ul:visible').slideUp('normal');
