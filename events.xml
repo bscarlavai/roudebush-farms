@@ -1,7 +1,7 @@
 <events>
 	<event isMeeting="true" dayName="Monday" month="March" day="4" year="2013" location="Noblesville Library" time="7:00 PM">Board Meeting</event>
-	<event isMeeting="true" dayName="Sunday" month="January" day="27" year="2013" location="Noblesville Library" time="2:00 PM">Annual Meeting</event>
-	<event isMeeting="true" dayName="Monday" month="January" day="7" year="2013" location="Noblesville Library" time="7:00 PM">Board Meeting</event>
+	<event isMeeting="true" dayName="Sunday" month="January" day="27" year="2013" location="Noblesville Library" time="2:00 PM" minuteFileName="2013/RF Board Meeting Minutes 2013.01.27.pdf">Annual Meeting</event>
+	<event isMeeting="true" dayName="Monday" month="January" day="7" year="2013" location="Noblesville Library" time="7:00 PM" minuteFileName="2013/RF Board Meeting Minutes 2013.01.07.pdf">Board Meeting</event>
 	<event isMeeting="true" dayName="Sunday" month="December" day="9" year="2012" location="19229 Searay Drive" time="7:00 PM">Board Meeting</event>
 	<event isMeeting="true" dayName="Sunday" month="November" day="18" year="2012" location="19229 Searay Drive" time="7:00 PM" minuteFileName="2012/RF Board Meeting Minutes 2012.11.18.pdf">Board Meeting</event>
 	<event isMeeting="true" dayName="Sunday" month="October" day="14" year="2012" location="19229 Searay Drive" time="7:00 PM">Board Meeting</event>
