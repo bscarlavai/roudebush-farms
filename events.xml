@@ -2,7 +2,7 @@
 	<event isMeeting="true" dayName="Monday" month="December" day="9" year="2013" location="Noblesville Library" time="7:00 PM" >Board Meeting</event>
 	<event isMeeting="true" dayName="Tuesday" month="November" day="19" year="2013" location="Noblesville Library" time="7:00 PM" >Board Meeting</event>
 	<event isMeeting="true" dayName="Monday" month="October" day="7" year="2013" location="Noblesville Library" time="7:00 PM" >Board Meeting</event>
-	<event isMeeting="true" dayName="Monday" month="September" day="16" year="2013" location="Noblesville Library" time="7:00 PM" >Board Meeting</event>
+	<event isMeeting="true" dayName="Monday" month="September" day="16" year="2013" location="Noblesville Library" time="7:00 PM" minuteFileName="2013/RF Board Meeting Minutes 2013.09.16.pdf">Board Meeting</event>
     <event isMeeting="true" dayName="Monday" month="August" day="12" year="2013" location="Noblesville Library" time="7:00 PM" minuteFileName="2013/RF Board Meeting Minutes 2013.08.12.pdf">Board Meeting</event>
     <event isMeeting="true" dayName="Monday" month="June" day="10" year="2013" location="Noblesville Library" time="7:00 PM" minuteFileName="2013/RF Board Meeting Minutes 2013.06.10.pdf">Board Meeting</event>
     <event isMeeting="true" dayName="Monday" month="May" day="13" year="2013" location="Noblesville Library" time="7:00 PM" minuteFileName="2013/RF Board Meeting Minutes 2013.05.13.pdf">Board Meeting</event>
