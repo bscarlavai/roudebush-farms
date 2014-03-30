@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -46,4 +47,56 @@
 			</div>
 		</div>
 	</body>
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('index');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content">
+				<h2>Welcome!</h2>
+				<p>Developed by Ryland Homes, the community is comprised of 188 lots and features   two playgrounds, two retention ponds and a shared pool facility with the   neighboring Roudebush Woods community, which was also a Ryland Homes development.  <br /><br /><a href="javascript:goToPage('about');">Read more about Roudebush Farms</a></p>
+				<h2>Godfrey Drive speed study</h2>
+				<p>
+					The Godfrey Drive speed study was completed at the request of residents. Results of the study can be found in <a href="documents.html#misc">here</a>.
+				</p>
+				<h2>2014 Budget</h2>
+				<p>The <a href="documents/legal/RF POA 2014 Budget.pdf" target="_blank">2014 budget</a> has been made available and can be located in the Documents > Finance section of the website.</p>
+				<h2>POA Dues</h2>
+				<p>Kirkpatrick Management accepts online dues payments <a href="http://www.ekirkpatrick.com/index.php?option=com_content&view=article&id=22&Itemid=157" target="_blank">here</a>. They also accept personal or bank check, ACH or credit/debit payments.  The annual dues are currently $429.  Regular quarterly payments are $107.25 and are due January 1st, April 1st, July 1st &amp; October 1st.  Payments not received by the 15th day after the due date will occur a $25 per month late fee per the <a href="documents/legal/Delinquency Procedure.pdf" target="_blank">Delinquency Policy</a>.</p>
+			</div>
+		</div>
+	</body>
+>>>>>>> 2939cbbe19665e29ddf5ba72263be787d991815d
 </html>
