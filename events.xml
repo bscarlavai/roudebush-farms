@@ -1,5 +1,8 @@
 <events>
-	<event isMeeting="true" dayName="Friday" month="October" day="14" year="2014" location="Panera" time="5:30 PM" minuteFileName="">Board Meeting</event>
+	<event isMeeting="true" dayName="Sunday" month="January" day="25" year="2015" location="Noblesville Library" time="1:30 PM" minuteFileName="">Annual Meeting</event>
+	<event isMeeting="true" dayName="Tuesday" month="January" day="13" year="2015" location="Panera" time="5:30 PM" minuteFileName="">Board Meeting</event>
+	<event isMeeting="true" dayName="Tuesday" month="November" day="11" year="2014" location="Panera" time="5:30 PM" minuteFileName="">Board Meeting</event>
+	<event isMeeting="true" dayName="Tuesday" month="October" day="14" year="2014" location="Panera" time="5:30 PM" minuteFileName="2014/RF Board Meeting Minutes 2014.10.14.pdf">Board Meeting</event>
 	<event isMeeting="true" dayName="Wednesday" month="September" day="24" year="2014" location="TBD" time="6:00 PM" minuteFileName="2014/RF Board Joint Pool Committee Meeting Minutes.pdf">Joint Pool Meeting</event>
 	<event isMeeting="true" dayName="Monday" month="September" day="15" year="2014" location="Panera" time="5:30 PM" minuteFileName="2014/RF Board Meeting Minutes 2014.08.19.pdf">Board Meeting</event>
 	<event isMeeting="true" dayName="Tuesday" month="August" day="19" year="2014" location="Panera" time="5:30 PM" minuteFileName="2014/RF Board Meeting Minutes 2014.08.19.pdf">Board Meeting</event>
