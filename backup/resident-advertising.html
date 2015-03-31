@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Roudebush Farms - Property Owners Assocation</title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadMasterPage();
+				initPage('resident-advertising');
+			
+				$('#datepicker').datepicker({
+					inline: true,
+					onSelect: function(dateText, inst) {
+						setTimeout('initEvents()', 20);
+					},
+					onChangeMonthYear: function(year, month, inst) {
+						setTimeout('initEvents()', 20);
+					}
+				});
+				
+				initEvents();
+				initMenus();
+				
+				CreateServicesTable();
+			});
+
+			function CreateServicesTable()
+			{
+				var currRowId = 0;
+				
+				serviceCategories.sort();
+				
+				var cellCount = 0;
+				for(var i = 0; i < serviceCategories.length; i++)
+				{
+                    if(serviceData[serviceCategories[i]] && serviceData[serviceCategories[i]].length > 0)
+                    {
+    					for(var j = 0; j < serviceData[serviceCategories[i]].length; j++)
+    					{
+    						var isNewRow = (cellCount % 2 == 0);
+    						
+    						if(isNewRow)
+    							currRowId++;
+    						
+    						var html = '';
+    						if(isNewRow)
+    							html += '<tr id="servicesRow' + currRowId + '">';
+    						
+    						html += '<td style="width:50%;vertical-align:top;">';
+    						
+    						if(j == 0)
+    							html += '<h2 style="color:white;">' + serviceCategories[i] + '</h2>';
+    							
+    						html +=	'<p>' + serviceData[serviceCategories[i]][j][0] + '</p>' +
+    								'<p>' + serviceData[serviceCategories[i]][j][1] + '</p>' +
+    								'</td>';
+    						
+    						if(isNewRow)
+    						{
+    							html += '</tr>';
+    							$('#services').append(html);
+    						}
+    						else
+    							$('#servicesRow' + currRowId).append(html);
+    							
+    						cellCount++;
+    					}
+                    }
+				}
+			}
+
+			//Put new categories at the end of the array definition - DO NOT ALPHA SORT BY HAND (will screw up the array indexes below)
+			//The array is sorted in the table creation logic
+			var serviceCategories = ["Child Care", //0
+				"Cosmetics & More", //1
+				"Customer Jewelry & Gifts", //2
+				"Education", //3
+				"Food", //4
+				"Interior Decorating", //5
+				"Jewelry & More", //6
+				"Fragrance", //7
+				"Marketing", //8
+				"Party Supplies", //9
+				"Piano & Voice Lessons", //10
+				"Photography", //11
+				"Signs & Banners", //12
+				"Interior/Exterior Painting", //13
+				"DJ Service", //14
+				"Organization", //15
+				"Realtor", //16
+				"Cleaning", //17
+				"Electronics", //18
+				"Graphic Design", //19
+                "Fitness", //20
+                "HVAC"]; //21
+
+			//Add new category entries at the very bottom - make sure to use the index of the service category added above
+			//Array index 0: General service information
+			//Array index 1: Contact information (HTML formatted for links - use target="_blank" to open in a new window)
+			var serviceData = new Object();
+
+			//Child Care
+			serviceData[serviceCategories[0]] = new Array();
+            serviceData[serviceCategories[0]][0] = new Array();
+            serviceData[serviceCategories[0]][0][0] = "Krafty Kids Daycare - I offer daycare in a loving home setting with a low ratio of 1:4.  I have over ten years' experience, with nine coming at the same address.  I have current openings for two full-time." +
+                "<ul>" +
+                    "<li>Prefer infant to 5 years of age</li>" +
+                    "<li>Low ratio of 1:4 full-time</li>" +
+                    "<li>Reasonable rates</li>" +
+                    "<li>Flexible hours</li>" +
+                    "<li>Excellent local references</li>" +
+                    "<li>Tax deductible</li>" +
+                "</ul>";
+            serviceData[serviceCategories[0]][0][1] = 'Please call me or text me for more information or to set an interview.  <br /><br /> Lisa Drouin - 19243 Pacifica Place.  317-777-5284.';
+			
+
+			//TODO - Enabled multiple service offers per category
+			//serviceData[serviceCategories[0]][0] = new Array();
+			//serviceData[serviceCategories[0]][0][0] = 'A Big Happy Family Childcare...because your child deserves the very best start in life! Loving, experienced, Christian, Masters-degreed mom enjoys helping kids learn through creative play! Activities include phonics, numbers, baking, gardening, and arts & crafts. Full-time, part-time, or drop-in care. 24/7 availability. Licensed & insured. All ages welcome!';
+			//serviceData[serviceCategories[0]][0][1] = 'Call 770-6719.';
+
+			//serviceData[serviceCategories[0]][1] = new Array();
+			//serviceData[serviceCategories[0]][1][0] = 'A Big Happy Family Childcare 2...because your child deserves the very best start in life! Loving, experienced, Christian, Masters-degreed mom enjoys helping kids learn through creative play! Activities include phonics, numbers, baking, gardening, and arts & crafts. Full-time, part-time, or drop-in care. 24/7 availability. Licensed & insured. All ages welcome!';
+			//serviceData[serviceCategories[0]][1][1] = 'Call 770-6719.';
+
+			//Cosmetics & More
+			serviceData[serviceCategories[1]] = new Array();
+			serviceData[serviceCategories[1]][0] = new Array();
+			serviceData[serviceCategories[1]][0][0] = "Mary Kay Cosmetics - for all your personal care needs including make-up techniques. For the complete product line and the latest fashion trends, visit <a target='_blank' href='http://www.marykay.com/irmorgan'>www.marykay.com/irmorgan</a>.  Register as a new customer on Irene's website, and receive a free full-size hand cream with your initial $10.00 order.  Shop online 24/7 or call 574-315-1260 to schedule an appointment with our neighborhood Independent Mary Kay Beauty Consultant, Irene Morgan.";
+			serviceData[serviceCategories[1]][0][1] = '';
+
+			//Customer Jewelry & Gifts
+			serviceData[serviceCategories[2]] = new Array();
+			serviceData[serviceCategories[2]][0] = new Array();
+			serviceData[serviceCategories[2]][0][0] = 'Amy Cornwell Designs features personalized, custom stamped jewelry in sterling silver, gold filled and copper. Items start at just $3 - perfect for any budget. Each item is hammered in her home studio, then polished and packaged as a gift.';
+			serviceData[serviceCategories[2]][0][1] = 'You can view items at <a target="_blank" href="http://www.amycornwell.com">www.amycornwell.com</a>.';
+
+			//Education
+			serviceData[serviceCategories[3]] = new Array();
+			serviceData[serviceCategories[3]][0] = new Array();
+			serviceData[serviceCategories[3]][0][0] = 'Legacy Christian School provides excellent, Christian education to students from PreK - High School.';
+			serviceData[serviceCategories[3]][0][1] = 'For more information, call 776-4186 or visit online at <a target="_blank" href="http://www.LegacyChristianOnline.org">www.LegacyChristianOnline.org</a>.';
+
+			//Food
+			serviceData[serviceCategories[4]] = new Array();
+
+			//Interior Decorating
+			serviceData[serviceCategories[5]] = new Array();
+			serviceData[serviceCategories[5]][0] = new Array();
+			serviceData[serviceCategories[5]][0][0] = 'Celebrating Home, formally Home Interior & Gifts, Inc., is a party planning, decorating, entertaining and fundraising home business that offers candles, stoneware, pictures, dips, cookies, greenery, sconces, mirrors and more. Proudly serving for 26+ years. ';
+			serviceData[serviceCategories[5]][0][1] = 'Browse or shop 24/7 directly from my Web site at <a target="_blank" href="http://www.celebratinghome.com/sites/zldavis">www.celebratinghome.com/sites/zldavis</a> or call Z. Leslie Davis at 770-8466.';
+
+			//Jewelry & More
+			serviceData[serviceCategories[6]] = new Array();
+
+			//Fragrance
+			serviceData[serviceCategories[7]] = new Array();
+
+			//Marketing
+			serviceData[serviceCategories[8]] = new Array();
+
+			//Party Supplies
+			serviceData[serviceCategories[9]] = new Array();
+			serviceData[serviceCategories[9]][0] = new Array();
+			serviceData[serviceCategories[9]][0][0] = 'Best Rentals is a full service party rental store offering tents, tables, chairs, moonwalks and more. Mention this ad and receive 10% off your order.';
+			serviceData[serviceCategories[9]][0][1] = 'Call Barry Felix at 638-3515 or visit <a target="_blank" href="http://www.bestrentals.net">www.bestrentals.net</a>.';
+
+			//Piano & Voice Lessons
+			serviceData[serviceCategories[10]] = new Array();
+
+			//Photography
+			serviceData[serviceCategories[11]] = new Array();
+
+			//Signs & Banners
+			serviceData[serviceCategories[12]] = new Array();
+			serviceData[serviceCategories[12]][0] = new Array();
+			serviceData[serviceCategories[12]][0][0] = 'ISF Sign Specialists can design, fabricate and install all types of signs. We have experience working throughout the country. Give us a call and let us help you with all of your sign needs!';
+			serviceData[serviceCategories[12]][0][1] = 'Call Eric Beckner at 251-1219 or visit <a target="_blank" href="http://www.isfsigns.com">www.isfsigns.com</a>.';
+
+			//Interior/Exterior Painting
+			serviceData[serviceCategories[13]] = new Array();
+			serviceData[serviceCategories[13]][0] = new Array();
+			serviceData[serviceCategories[13]][0][0] = 'For the best painter in Indy, The Perfectionist Painter is the only choice.  Best in interior and exterior including fence and deck staining.   We do not mark up prices on our products -- you pay what we pay!  Locally owned/operated & insured.  Roudebush Farms referral discount offered!';
+			serviceData[serviceCategories[13]][0][1] = 'Visit <a target="_blank" href="http://www.theperfectionistpainter.com">www.theperfectionistpainter.com</a> or call 776-8779.  Quotes by e-mail: <a href="mailto:theperfectionistpainter@gmail.com">theperfectionistpainter@gmail.com</a>.';
+
+			//DJ Service
+			serviceData[serviceCategories[14]] = new Array();
+			serviceData[serviceCategories[14]][0] = new Array();
+			serviceData[serviceCategories[14]][0][0] = '14 years in the business, Music Magic offers unlimited time and all-inclusive pricing!  Voted "Best Indy DJ" for the 3rd straight year.  We are a small, local, privately owned DJ company so you know you will get unmatched personalized service.';
+			serviceData[serviceCategories[14]][0][1] = 'For more information, visit <a target="_blank" href="http://www.musicmagicnow.com">www.musicmagicnow.com</a>, call Mike at 985-5500 or email <a href="mailto:musicmagic@prodigy.net">musicmagic@prodigy.net</a>.';  
+			
+			//Organization
+			serviceData[serviceCategories[15]] = new Array();
+			
+			//Realtor
+			serviceData[serviceCategories[16]] = new Array(); 
+			
+			//Cleaning
+            serviceData[serviceCategories[17]] = new Array();
+			
+			//Electronics
+			serviceData[serviceCategories[18]] = new Array();
+			
+			// Graphic Design
+			serviceData[serviceCategories[19]] = new Array();
+			serviceData[serviceCategories[19]][0] = new Array();
+			serviceData[serviceCategories[19]][0][0] = 'At Good Deed Design we specialize in logo design and corporate branding. We also offer the design and production of many printed items such as business cards, banners, brochures, posters, invitations and other promotional products. Basically if it needs designed and/or printed, we do that!';
+			serviceData[serviceCategories[19]][0][1] = 'For examples of our work, please visit us at <a target="_blank" href="http://www.gooddeeddesign.com">www.gooddeeddesign.com</a>.  Email us at <a href="mailto:info@gooddeeddesign.com">info@gooddeeddesign.com</a>.  Call Eric Beckner at 317-997-9514.';
+
+            // Fitness
+            serviceData[serviceCategories[20]] = new Array();
+            serviceData[serviceCategories[20]][0] = new Array();
+            serviceData[serviceCategories[20]][0][0] = "The Body by Vi Challenge is a way to change your health 90 days at a time! Use it for weight-loss, building muscle, or just bettering your nutrition...it's quick, easy, and it works! The best part is that by referring friends and family, you can challenge yourself for FREE!";
+            serviceData[serviceCategories[20]][0][1] = 'For more information visit <a target="_blank" href="http://www.90daystohealthyhabits.com">www.90daystohealthyhabits.com</a> or contact Valerie Riley at 317-403-3578.';
+
+            // HVAC
+            serviceData[serviceCategories[21]] = new Array();
+            serviceData[serviceCategories[21]][0] = new Array();
+            serviceData[serviceCategories[21]][0][0] = "Mr. Lee Heating and Cooling <br /> &#126; Licensed & Bonded &#126;<br /><br /> Since we live in Roudebush Farms...we are ALWAYS close... :) <br /> <ul> <li>We have over 20 years experience with residential and commercial service. </li> <li>We provide HVAC service in Hamilton, Marion, and surrounding counties. Our product range has grown to meet today's ever-changing demands. </li><li> We are continuously adopting the latest energy efficient technology.﻿ We offer both installation and service for air conditioning and heating systems. </li><li> Quality maintenance is important to extend the life and performance of your heating and cooling systems.﻿ </li><li> We offer FAST EMERGENCY SERVICE and Maintenance Agreements to ensure you stay comfortable. </li> </ul> We can discuss your unique home comfort system requirements!";
+            serviceData[serviceCategories[21]][0][1] = 'Visit us at <a target="_blank" href="http://www.mrleeheatingcooling.com">www.mrleeheatingcooling.com</a> or call 317-767-1866...ask for Chuck...';
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<div id="main-content">
+				<table style="width=100%;border-spacing:20px;" id="services">
+					
+				</table>
+				<p class="style4">If you would like your business listed on this page, please email <a href="mailto:board@roudebushfarms.org">board@roudebushfarms.org</a></p>
+			</div>
+		</div>
+	</body>
+</html>

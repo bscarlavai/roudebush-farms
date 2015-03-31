@@ -13,14 +13,9 @@
 		<script type="text/javascript" src="js/menu.js"></script>
 		
 		<script type="text/javascript">
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			
 			$(document).ready(function() {
 				loadMasterPage();
-				initPage('members');
+				initPage('calendar');
 			
 				$('#datepicker').datepicker({
 					inline: true,
@@ -34,21 +29,40 @@
 				
 				initEvents();
 				initMenus();
+				
+				loadCalendarFromXml();
 			});
 		</script>
 	</head>
 	<body>
 		<div id="page-container">
 			<div id="main-content">
-				<h2>2015 Roudebush Farms POA Board Members</h2>
-				<ul id="members">
-				    <li><h3>President<br /><span style="color:#D3C9BA;">Dave McNelis</span></h3></li>
-				    <li><h3>Vice President<br /><span style="color:#D3C9BA;">Kelly Trent</span></h3></li>
-                    <li><h3>Treasurer/Secretary<br /><span style="color:#D3C9BA;">Jeff Cook</span></h3></li>
-                    <li><h3>Architecture Committee Chair<br /><span style="color:#D3C9BA;">Sarah Disser</span></h3></li>
-                    <li><h3>Pool Committee<br /><span style="color:#D3C9BA;">Christine McNelis</span></h3></li>
-                    <li><h3>Website Administrator<br /><span style="color:#D3C9BA;">Bret Scarlavai</span></h3></li>
-                </ul>
+				<table width="100%" border="0" cellspacing="3" cellpadding="3">
+					<tr>
+					  <td width="75%" valign="top"><br />
+						<table id="calendarTable" align="center" cellpadding="0" cellspacing="0">
+						  <col width="225" />
+						  <col width="65" />
+						  <col width="184" />
+						  <tr height="22">
+							<td colspan="3" height="22"><span class="style28" ><h2>Board Meetings Schedule</h2></span></td>
+						  </tr>
+						  <tr id="rowHeaders" height="22" style="font-weight:bold;color:white;">
+							<td width="187" height="22"><span class="style28" >Date/Minutes</span></td>
+							<td width="73"><span class="style28" >Time</span></td>
+							<td width="178"><span class="style28" >Location</span></td>
+						  </tr>
+						  <tr id="rowFooter" height="21">
+							<td colspan="3" height="21"><div align="left" class="style35"><span class="style32" >These dates, times and locations are subject to change.</span></div></td>
+						  </tr>
+						  <tr height="22">
+							<td colspan="3" height="22"><div align="left" class="style35"><span class="style32" >The changes will be noted on this page.</span></div></td>
+						  </tr>
+						</table>
+						</td>
+					  <td width="25%" rowspan="4" align="right" valign="top"></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</body>
