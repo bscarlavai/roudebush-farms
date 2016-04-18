@@ -25,7 +25,7 @@
 			
 			$(document).ready(function() {
 				loadMasterPage();
-				initPage('gallery');
+				initPage('photo');
 			
 				$('#datepicker').datepicker({
 					inline: true,
@@ -41,21 +41,21 @@
 				initMenus();
 				
 				var onMouseOutOpacity = 0.67;
-                $('ul.gallery li').opacityrollover({
+                $('ul.photo li').opacityrollover({
                     mouseOutOpacity:   onMouseOutOpacity,
                     mouseOverOpacity:  1.0,
                     fadeSpeed:         'fast',
                     exemptionSelector: '.selected'
                 });
 				
-				$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:5000, autoplay_slideshow: false, social_tools: false});
+				$(".photo:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:5000, autoplay_slideshow: false, social_tools: false});
 			});
 		</script>
 	</head>
 	<body>
 		<div id="page-container">
 			<div id="main-content">
-				<ul class="gallery clearfix">
+				<ul class="photo clearfix">
 					<li><a href="images/gallery/100_0620.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0620.jpg" width="75" height="75" alt="" /></a></li>
 					<li><a href="images/gallery/100_0621.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0621.jpg" width="75" height="75" alt="" /></a></li>
 					<li><a href="images/gallery/100_0622.jpg" rel="prettyPhoto[1]"><img src="images/gallery/thumbnails/100_0622.jpg" width="75" height="75" alt="" /></a></li>

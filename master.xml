@@ -9,22 +9,7 @@
 	<div id="navigation">
 		<ul id="nav" class="menu">
 			<li><a id="index" class="m1" href="javascript:goToPage('index')">Home</a></li>
-			<li><a class="m2" href="#">Newsletters</a>
-				<ul>
-					<li><a href="documents/letters/2011/Roudebush Farms Roundup - Winter 2011.pdf" target="_blank">Winter 2011</a></li>
-					<li><a href="documents/letters/2010/Newsletter_Fall%202010.pdf" target="_blank">Fall 2010</a></li>
-					<li><a href="documents/letters/2010/Newsletter_Summer%202010.pdf" target="_blank">Summer 2010</a></li>
-					<li><a href="documents/letters/2010/RFRoundup_Spring2010-1.pdf" target="_blank">Spring 2010</a></li>
-					<li><a href="documents/letters/2010/Introduction%20Letter_Jan2010.pdf" target="_blank">January 2010 Intro &amp; Dues Letter</a></li>
-				</ul>
-			</li>
-			<li><a id="gallery" class="m1" href="javascript:goToPage('gallery')">Gallery</a></li>
-			<li><a class="m5" href="#">Residents</a>
-				<ul>
-					<li><a id="resident-advertising" href="javascript:goToPage('resident-advertising')">Advertising</a></li>
-					<li><a id="resident-recipes" href="javascript:goToPage('resident-recipes')">Recipes</a></li>
-				</ul>
-			</li>
+			<li><a id="photos" class="m1" href="javascript:goToPage('photos')">Photos</a></li>
 			<li><a class="m3" href="#">POA Board</a>
 				<ul>
 					<li><a id="members" href="javascript:goToPage('members')">Members</a></li>
@@ -35,11 +20,11 @@
 			<li><a class="m4" href="#">Documents</a>
 				<ul>
 					<li><a id="documents-arch" href="javascript:hideElements('#documents div');goToPage('documents', 'arch');">Architecture</a></li>
-					<li><a id="documents-crime" href="javascript:hideElements('#documents div');goToPage('documents', 'crime');">Crime Prevention</a></li>
-					<li><a id="documents-finance" href="javascript:hideElements('#documents div');goToPage('documents', 'finance');">Finance</a></li>
+					<li><a id="documents-crime" href="javascript:hideElements('#documents div');goToPage('documents', 'crime');">Crime Watch</a></li>
+					<li><a id="documents-finance" href="javascript:hideElements('#documents div');goToPage('documents', 'finance');">Budget</a></li>
 					<li><a id="documents-legal" href="javascript:hideElements('#documents div');goToPage('documents', 'legal');">Legal</a></li>
 					<li><a id="documents-pool" href="javascript:hideElements('#documents div');goToPage('documents', 'pool');">Pool</a></li>
-					<li><a id="documents-misc" href="javascript:hideElements('#documents div');goToPage('documents', 'misc');">Miscellaneous</a></li>
+					<li><a id="documents-misc" href="javascript:hideElements('#documents div');goToPage('documents', 'misc');">Other Documents</a></li>
 				</ul>
 			</li>
 			<li><a id="about" class="m6" href="javascript:goToPage('about')">About</a></li>
