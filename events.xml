@@ -1,7 +1,8 @@
 <events>
-	<event isMeeting="true" dayName="Sunday" month="October" day="2" year="2016" location="Noblesville Library" time="2:00 PM" minuteFileName="">Annual Meeting</event>
-	<event isMeeting="true" dayName="Monday" month="September" day="19" year="2016" location="Noblesville Library" time="6:30 PM" minuteFileName="">Board Meeting</event>
-	<event isMeeting="true" dayName="Monday" month="August" day="8" year="2016" location="Panera" time="6:30 PM" minuteFileName="">Board Meeting</event>
+	<event isMeeting="true" dayName="Thursday" month="February" day="16" year="2017" location="Panera" time="6:00 PM" minuteFileName="">Board Meeting</event>
+	<event isMeeting="true" dayName="Sunday" month="October" day="2" year="2016" location="Noblesville Library" time="2:00 PM" minuteFileName="2016/RF Annual Meeting Minutes 2016.10.02.pdf">Annual Meeting</event>
+	<event isMeeting="true" dayName="Monday" month="September" day="19" year="2016" location="Noblesville Library" time="6:30 PM" minuteFileName="2016/RF Board Meeting Minutes 2016.09.19.pdf">Board Meeting</event>
+	<event isMeeting="true" dayName="Monday" month="August" day="8" year="2016" location="Panera" time="6:30 PM" minuteFileName="2016/RF Board Meeting Minutes 2016.08.08.pdf">Board Meeting</event>
 	<event isMeeting="true" dayName="Wednesday" month="June" day="22" year="2016" location="Panera" time="6:30 PM" minuteFileName="2016/RF Board Meeting Minutes 2016.06.22.pdf">Board Meeting</event>
 	<event isMeeting="true" dayName="Tuesday" month="May" day="17" year="2016" location="Panera" time="7:00 PM" minuteFileName="2016/RF Board Meeting Minutes 2016.05.17.pdf">Board Meeting</event>
 	<event isMeeting="false" dayName="Saturday" month="April" day="23" year="2016" location="" time="" minuteFileName="">Community Garage Sale</event>
